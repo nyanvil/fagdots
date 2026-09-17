@@ -1,5 +1,8 @@
 # fagdots
-w.i.p.
+Aiming 4 Perfection
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/0cd2d3c5-3694-45bc-990a-d38a397c05d4" />
+
 
 1. install sway and noctalia
 
