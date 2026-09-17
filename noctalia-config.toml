@@ -8,25 +8,14 @@ order = [ "default" ]
     capsule = true
     capsule_padding = 3.0
     capsule_radius = 8
-    center = [ "clock", "media" ]
+    center = [ "clock", "privacy" ]
     contact_shadow = true
-    end = [
-        "clipboard",
-        "network",
-        "bluetooth",
-        "volume",
-        "brightness",
-        "battery",
-        "privacy",
-        "tray",
-        "screenshot",
-        "notifications",
-        "session"
-    ]
+    end = [ "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "tray", "notifications" ]
+    margin_ends = 44
     padding = 4
     radius = 16
     scale = 1.300000011920929
-    start = [ "control-center", "launcher", "wallpaper", "workspaces" ]
+    start = [ "control-center", "launcher", "wallpaper", "workspaces", "media" ]
     thickness = 30
 
 [desktop_widgets]
@@ -83,6 +72,9 @@ widget_order = [ "lockscreen-login-box@LVDS-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[osd.kinds]
+lock_keys = false
+
 [shell]
 corner_radius_scale = 0.85000001266598701
 screen_time_enabled = true
@@ -129,10 +121,22 @@ transition_on_startup = true
 [weather]
 enabled = false
 
+[widget.audio_visualizer]
+bands = 74
+mirrored = false
+width = 142
+
 [widget.battery]
 show_label = false
 
+[widget.bluetooth]
+hide_when_adapter_off = true
+
+    [widget.bluetooth.actions]
+    right = "none"
+
 [widget.clock]
+anchor = true
 capsule = true
 capsule_opacity = 0.0
 format = "{:%H:%M:%S}"
@@ -148,10 +152,14 @@ art_size = 12
 font_scale = 0.80000000000000004
 hide_artist = true
 hide_when_no_media = true
+min_length = 0
 
 [widget.network]
 show_label = false
 vpn_status = "hidden"
+
+[widget.privacy]
+hide_inactive = true
 
 [widget.sysmon]
 stat = "cpu_temp"
