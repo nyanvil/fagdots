@@ -1,0 +1,7 @@
+[hooks]
+theme_mode_changed = "/usr/share/noctalia/assets/templates/gtk/apply.sh --appearance-only $NOCTALIA_THEME_MODE"
+colors_changed = "sed -i -E 's/^colors-dark/colors/; s/^colors-light/colors2/' ~/.config/foot/themes/noctalia && awk '/^cursor=/{split($0,a,\"=\"); c=a[2]; next} {print} END{print \"\\n[cursor]\\ncolor=\" c}' ~/.config/foot/themes/noctalia > /tmp/foot-noctalia-fixed && mv /tmp/foot-noctalia-fixed ~/.config/foot/themes/noctalia"
+[theme.templates.user.terminal-sequences]
+input_path = '~/.config/noctalia/templates/terminal-sequences'
+output_path = '~/.cache/terminal-sequences'
+post_hook = 'tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences'
