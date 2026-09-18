@@ -2,11 +2,15 @@
 
 **Aiming 4 Perfection**
 
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d16c1720-4907-41b6-8f13-60b7cbd25b81" />
+
 ---
 
 slightly opinionated, however it should be painless for anyone
 
 #### NOTE: *gtk theming is kinda fucked* at least for me, maybe it works on arch or other rolling distroes?
+
+and fastfetch config not included cuz i changed it to mx linux, not by a command, but by Just making it say dat
 
 tested only on debian trixie
 
