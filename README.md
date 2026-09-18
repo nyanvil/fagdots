@@ -40,18 +40,30 @@ telegram-desktop (doesnt apply for me? maybe bc my client is too old (debian sta
 # now onto the keybinds
 
 in the sway config **the default mod key is super**
+
 however if u wanna replace it, **just change the set**
 u can also change your **prefered terminal** this way
 
 control center - mod+a
+
 kill focused window - mod+q
+
 toggle tabbed/split - mod+shift+w
+
 fullscreen - mod+f
+
 change focused window - mod+arrows or hover over it with mouse
+
 cycle workspaces - mod+(1 through 9)
+
 cycle tabbed windows - mod+(left/right arrow)
+
 move focused window to another workspace - mod+shift+(left/right arrow)
+
 noctalia settings - mod+comma
+
 open terminal (kitty by default) - mod+enter
+
 reload sway config - mod+shift+c
+
 
