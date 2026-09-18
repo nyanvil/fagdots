@@ -55,6 +55,10 @@ fullscreen - mod+f
 
 change focused window - mod+arrows or hover over it with mouse
 
+resize mode - mod+r, then arrow keys, and ESC when done
+
+resize quickly - mod+drag using rmb
+
 cycle workspaces - mod+(1 through 9)
 
 cycle tabbed windows - mod+(left/right arrow)
