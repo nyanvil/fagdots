@@ -25,6 +25,7 @@ gayland
 sway
 noctalia
 polkit-kde-authentication-agent
+thunar
 ```
 
 & optional, but are also modded by these dots
