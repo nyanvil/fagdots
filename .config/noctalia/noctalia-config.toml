@@ -1,42 +1,113 @@
-[accessibility]
-ui_scale = 1.2000000104308128
-
 [bar]
 order = [ "default" ]
 
     [bar.default]
+    background_opacity = 0.79999998211860657
     capsule = true
     capsule_padding = 3.0
-    capsule_radius = 8
     center = [ "clock", "privacy" ]
     contact_shadow = true
-    end = [ "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "tray", "notifications" ]
-    margin_ends = 44
-    padding = 4
-    radius = 16
+    end = [
+        "bar",
+        "media",
+        "clipboard",
+        "network",
+        "bluetooth",
+        "volume",
+        "brightness",
+        "battery",
+        "tray",
+        "notifications",
+        "session"
+    ]
+    font_weight = 400
+    margin_ends = 5
+    padding = 3
+    panel_overlap = 0
     scale = 1.300000011920929
-    start = [ "control-center", "launcher", "wallpaper", "workspaces", "media" ]
+    shadow = false
+    start = [ "control-center", "launcher", "wallpaper", "workspaces", "taskbar", "active_window" ]
     thickness = 30
+    widget_spacing = 2
+
+[calendar]
+
+[control_center]
+sidebar = "full"
+sidebar_section = "none"
+width = 600
+
+    [control_center.calendar]
+    show_events_card = false
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
 
 [desktop_widgets]
 enabled = false
 schema_version = 2
-widget_order = []
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
 
     [desktop_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
 
-    [desktop_widgets.widget]
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 320.0
+    box_width = 192.0
+    cx = 104.0
+    cy = 733.5
+    output = "LVDS-1"
+    placement_height = 900.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        layout = "vertical"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 528.0
+    box_width = 464.0
+    cx = 240.0
+    cy = 306.0
+    output = "LVDS-1"
+    placement_height = 900.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "calendar"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        show_events = false
 
 [dock]
 cross_axis_padding = 2
 icon_size = 30
 main_axis_padding = 4
+position = "left"
+
+[hooks]
+colors_changed = "sed -i -E 's/^colors-dark/colors/; s/^colors-light/colors2/' ~/.config/foot/themes/noctalia && awk '/^cursor=/{split($0,a,\"=\"); c=a[2]; next} {print} END{print \"\\n[cursor]\\ncolor=\" c}' ~/.config/foot/themes/noctalia > /tmp/foot-noctalia-fixed && swaymsg reload"
+theme_mode_changed = "/usr/share/noctalia/assets/templates/gtk/apply.sh --appearance-only $NOCTALIA_THEME_MODE"
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
 widget_order = [ "lockscreen-login-box@LVDS-1" ]
 
@@ -72,59 +143,138 @@ widget_order = [ "lockscreen-login-box@LVDS-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[notification]
+max_visible = 2
+scale = 0.70000000298023224
+
 [osd.kinds]
 lock_keys = false
 
+[plugin_settings."icefish/phone-connect"]
+enable_charging_animation = false
+state_update_interval = 25
+
+[plugin_settings."noctalia/screen_recorder"]
+audio_bitrate = 122
+audio_source = "both"
+frame_rate = 30
+video_encoder = "cpu"
+video_qp = 30
+video_quality = "medium"
+video_source = "focused"
+
+[plugins]
+enabled = [ "noctalia/wallhaven", "icefish/phone-connect" ]
+
 [shell]
+app_icon_colorize = true
 corner_radius_scale = 0.85000001266598701
+polkit_agent = true
 screen_time_enabled = true
 
     [shell.animation]
     speed = 1.6000000238418579
 
-    [shell.launcher]
-    compact = true
-
     [shell.panel]
-    control_center_placement = "floating"
     control_center_position = "center"
-    launcher_placement = "attached"
+    open_near_click_control_center = true
+
+    [shell.screen_corners]
+    size = 45
 
     [shell.shadow]
     alpha = 0.69999998435378075
     direction = "center"
 
+    [shell.window_switcher]
+    mru = true
+
+[system.monitor]
+enabled = false
+
 [theme]
 builtin = "Noctalia"
-community_palette = "Gruvbox Material Hard"
+community_palette = "Ayu Blue"
+custom_palette = "wallhaven-1jg1m1-vib"
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "vibrant"
+wallpaper_scheme = "muted"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt", "sway" ]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "kcolorscheme", "kitty", "qt", "sway" ]
+    community_ids = [
+        "opencode",
+        "spicetify",
+        "brave-origin",
+        "discord",
+        "telegram",
+        "libreoffice",
+        "vscode",
+        "obs",
+        "papirus-icons",
+        "whitesur-icons",
+        "konsole"
+    ]
+
+        [theme.templates.user.terminal-sequences]
+        input_path = "~/.config/noctalia/templates/terminal-sequences"
+        output_path = "~/.cache/terminal-sequences"
+        post_hook = "tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences && swaymsg reload"
 
 [wallpaper]
 directory = "/home/anvil/Downloads/"
-transition = [ "wipe" ]
+transition = [ "disc" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/anvil/Downloads/wallhaven-1jg1m1.png"
+    path = "/home/anvil/Downloads/wallhaven-q26qql.jpg"
 
     [wallpaper.last]
-    path = "/home/anvil/Downloads/wallhaven-1jg1m1.png"
+    path = "/home/anvil/Downloads/wallhaven-q26qql.jpg"
 
     [wallpaper.monitors.LVDS-1]
+    path = "/home/anvil/Downloads/wallhaven-q26qql.jpg"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/anvil/Downloads/d9w1ugp-ef78534c-ea46-4f07-9bcc-e110544df4b8.png"
+    theme_mode = "light"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
     path = "/home/anvil/Downloads/wallhaven-1jg1m1.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/anvil/Downloads/wallhaven-q26qql.jpg"
+    theme_mode = "dark"
+    wallpaper_scheme = "muted"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/anvil/Downloads/niggaballs.jpg"
+    theme_mode = "dark"
+    wallpaper_scheme = "vibrant"
 
 [weather]
 enabled = false
+
+[widget.active_window]
+font_scale = 0.80000000000000004
+max_length = 419
+min_length = 0
 
 [widget.audio_visualizer]
 bands = 74
 mirrored = false
 width = 142
+
+[widget.bar]
+font_scale = 1.3999999999999999
+type = "icefish/phone-connect:bar"
 
 [widget.battery]
 show_label = false
@@ -138,7 +288,6 @@ hide_when_adapter_off = true
 [widget.clock]
 anchor = true
 capsule = true
-capsule_opacity = 0.0
 format = "{:%H:%M:%S}"
 
 [widget.control-center]
@@ -165,8 +314,22 @@ hide_inactive = true
 stat = "cpu_temp"
 visualization = "none"
 
+[widget.taskbar]
+icon_scale = 0.75
+inactive_opacity = 0.80000000000000004
+item_spacing = 1
+
+[widget.tray]
+scale = 0.75
+
 [widget.wallpaper]
 enabled = false
 
 [widget.workspaces]
+active_pill_size = 1.7000000000000002
+font_scale = 0.75
+font_weight = 700
+inactive_pill_size = 0.25
+occupied_color = "outline"
+pill_scale = 0.84999999999999998
 style = "minimal"

@@ -4,6 +4,14 @@
 
 ---
 
+INSTALLATION:
+
+```
+git clone https://github.com/nyanvil/fagdots
+cd fagdots
+cp -r .config ~/
+```
+
 slightly opinionated, however it should be painless for anyone
 
 #### NOTE: *gtk theming is kinda fucked* at least for me, maybe it works on arch or other rolling distroes?
@@ -21,6 +29,7 @@ gayland
 sway
 noctalia
 polkit-kde-authentication-agent
+thunar
 ```
 
 & optional, but are also modded by these dots
@@ -50,4 +59,4 @@ move focused window to another workspace - mod+shift+(left/right arrow)
 noctalia settings - mod+comma
 open terminal (kitty by default) - mod+enter
 reload sway config - mod+shift+c
-
+quickly toggle session menu - mod+esc, then press a number key corresponding to your chosen option
