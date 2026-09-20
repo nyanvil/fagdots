@@ -4,8 +4,6 @@
 
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d16c1720-4907-41b6-8f13-60b7cbd25b81" />
 
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d16c1720-4907-41b6-8f13-60b7cbd25b81" />
-
 ---
 
 INSTALLATION:
@@ -35,7 +33,6 @@ gayland
 sway
 noctalia
 polkit-kde-authentication-agent
-thunar
 thunar
 ```
 
